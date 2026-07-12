@@ -1,41 +1,26 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Candy Match Pro</title>
-    <!-- استدعاء Facebook Instant Games SDK -->
-    <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
-    <!-- استدعاء Phaser 3 -->
+    <title>لعبة الحلوى</title>
+    <!-- استدعاء مكتبة Phaser 3 -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
     <style>
-        body { margin: 0; padding: 0; background-color: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #111; /* لون خلفية الصفحة خارج اللعبة */
+            overflow: hidden; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
     </style>
 </head>
 <body>
-
-<script>
-    // 1. محاكاة FBInstant للاختبار المحلي (حتى لا تظهر أخطاء خارج فيسبوك)
-    if (!window.FBInstant) {
-        window.FBInstant = {
-            initializeAsync: () => Promise.resolve(),
-            startGameAsync: () => Promise.resolve(),
-            setLoadingProgress: (val) => console.log('FB Progress: ' + val + '%'),
-            player: { getDataAsync: () => Promise.resolve({}), setDataAsync: () => Promise.resolve() }
-        };
-    }
-
-    // 2. تهيئة اللعبة بعد تحميل فيسبوك
-    FBInstant.initializeAsync().then(function() {
-        console.log("FB SDK Initialized");
-        // تحميل اللعبة الأساسي
-        // سيتم استدعاء startGame من ملف game.js
-        loadGame();
-    });
-</script>
-
-<!-- استدعاء منطق اللعبة -->
-<script src="game.js"></script>
+    <!-- استدعاء ملف اللعبة -->
+    <script src="game.js"></script>
 </body>
 </html>
